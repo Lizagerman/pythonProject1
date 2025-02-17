@@ -1,3 +1,4 @@
+
 # src/widget.py
 from masks import mask_card, mask_account  # Предполагается, что эти функции уже существуют
 
@@ -14,3 +15,4 @@ def get_date(date_str: str) -> str:
     from datetime import datetime
     date_obj = datetime.fromisoformat(date_str)
     return date_obj.strftime("%d.%m.%Y")
+
