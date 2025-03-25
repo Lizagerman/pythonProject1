@@ -1,4 +1,3 @@
-
 import pytest
 
 @pytest.fixture
@@ -12,4 +11,3 @@ def sample_list():
 ])
 def test_increment(sample_list, n, expected):
     assert sample_list[n] + 1 == expected
-
