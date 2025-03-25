@@ -1,6 +1,8 @@
 # generators.py
+from typing import List
 
-def filter_by_currency(transactions, currency):
+
+def filter_by_currency(transactions: List, currency: str) -> List:
     """Генератор, который фильтрует транзакции по валюте."""
     for transaction in transactions:
         if transaction.get('currency') == currency:
