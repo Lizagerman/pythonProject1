@@ -1,61 +1,20 @@
 import pytest
-import logging
 from decorators import log
+import decorators
 
-
-import pytest
-import logging
-from src import log  # Замените your_module на имя вашего модуля
 
 @log()
-def add(a: int, b: int) -> int:
-    return a + b
-
-@log()
-def divide(a: int, b: int) -> float:
-    return a / b
-
-def test_add(caplog):
-    with caplog.at_level(logging.INFO):
-        result = add(2, 3)
-
-    assert "Calling function: add with args: (2, 3) and kwargs: {}" in caplog.text
-    assert "Function: add returned: 5" in caplog.text
-
-def test_divide(caplog):
-    with caplog.at_level(logging.INFO):
-        result = divide(10, 2)
-
-    assert "Calling function: divide with args: (10, 2) and kwargs: {}" in caplog.text
-    assert "Function: divide returned: 5.0" in caplog.text
-
-def test_divide_by_zero(caplog):
-    with pytest.raises(ZeroDivisionError):
-        divide(10, 0)
+def test_function(x, y):
+    return x + y
 
 
-
-# Определяем функцию add с декоратором log
-@log()
-def add(a: int, b: int) -> int:
-    return a + b
-
-
-# Определяем функцию divide с декоратором log
-@log()
-def divide(a: int, b: int) -> float:
-    return a / b
-
-
-# Тест для успешного вызова функции
 def test_log_success(capsys):
-    result = add(1, 2)
+    test_function(1, 2)
     captured = capsys.readouterr()
-    assert "Calling function: add with args: (1, 2) and kwargs: {}" in captured.out
-    assert "Function: add returned: 3" in captured.out
+    assert "Calling function: test_function with args: (1, 2) and kwargs: {}" in captured.out
+    assert "Function: test_function returned: 3" in captured.out
 
 
-# Тест для обработки ошибок
 def test_log_error(capsys):
     @log()
     def error_function(x):
@@ -68,19 +27,35 @@ def test_log_error(capsys):
     assert "Function: error_function raised an error: ZeroDivisionError with args: (0,)" in captured.err
 
 
-# Тест для функции add
-def test_add(caplog):  # подключаем caplog
-    with caplog.at_level(logging.INFO):  # Устанавливаем уровень логирования
-        result = add(2, 3)
-
-    # Проверяем логи
-    assert "Вызов функции add с аргументами (2, 3) и {}" in caplog.text
-    assert "Функция add вернула результат: 5" in caplog.text
+import pytest
+import io
+import sys
+from decorators import log
 
 
-# Тест для функции divide
+# Пример функции для тестирования декоратора
+@log()
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+@log()
+def divide(a: int, b: int) -> float:
+    return a / b
+
+
+# Тесты для декоратора log
+def test_add(capsys):
+    add(2, 3)
+
+    captured = capsys.readouterr()
+
+    assert "Вызов функции add с аргументами (2, 3) и {}" in captured.out
+    assert "Функция add вернула результат: 5" in captured.out
+
+
 def test_divide(capsys):
-    result = divide(10, 2)
+    divide(10, 2)
 
     captured = capsys.readouterr()
 
@@ -88,12 +63,11 @@ def test_divide(capsys):
     assert "Функция divide вернула результат: 5.0" in captured.out
 
 
-# Тест для деления на ноль
 def test_divide_by_zero(capsys):
     with pytest.raises(ZeroDivisionError):
         divide(10, 0)
 
     captured = capsys.readouterr()
 
-    assert "Ошибка в функции divide: ZeroDivisionError - division by zero." in captured.err
+    assert "Ошибка в функции divide: ZeroDivisionError - division by zero. Аргументы: (10,), {0}" in captured.err
 
