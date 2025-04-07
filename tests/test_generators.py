@@ -1,9 +1,8 @@
 # test_generators.py
 
 import unittest
-from generators import filter_by_currency, transaction_descriptions, card_number_generator
-from generators import filter_by_currency, transaction_descriptions, card_number_generator
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+
 
 
 class TestGenerators(unittest.TestCase):

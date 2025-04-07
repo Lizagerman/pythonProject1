@@ -1,42 +1,7 @@
 import functools
 import logging
 import sys
-
-
-
-def log(filename: Optional[str] = None):
-    # Настройка логирования
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-
-    if filename:
-        handler = logging.FileHandler(filename)
-    else:
-        handler = logging.StreamHandler(sys.stdout)
-
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-
-    def decorator(func):
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            try:
-                logger.info(f'Calling function: {func.__name__} with args: {args} and kwargs: {kwargs}')
-                result = func(*args, **kwargs)
-                logger.info(f'Function: {func.__name__} returned: {result}')
-                return result
-            except Exception as e:
-                logger.error(f'Function: {func.__name__} raised an error: {type(e).__name__} with args: {args}')
-                raise e
-
-        return wrapper
-
-    return decorator
-
-
-
-
+from typing import Optional, Callable, Any
 
 
 def log(filename: Optional[str] = None) -> Callable:
