@@ -18,3 +18,8 @@ def load_transactions(file_path: str) -> List[Dict[str, Any]]:
         except json.JSONDecodeError:
             return []
 
+"""
+Модуль для загрузки списка транзакций из JSON-файла.
+
+Содержит функцию load_transactions, которая безопасно читает данные и возвращает список транзакций.
+"""
