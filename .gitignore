@@ -18,3 +18,7 @@ git commit -m "Исправлены ошибки линтеров Flake8 и mypy
 
 venv/
 
+logs/
+__pycache__/
+*.pyc
+
