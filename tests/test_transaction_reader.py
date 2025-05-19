@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import List, Dict
 from unittest.mock import patch
-from transaction_reader import read_csv_transactions, read_excel_transactions
+from src.transaction_reader import read_csv_transactions, read_excel_transactions
 
 
 def test_read_csv_transactions() -> None:
