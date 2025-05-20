@@ -10,18 +10,17 @@ os.makedirs("logs", exist_ok=True)
 logger = logging.getLogger("masks")
 logger.setLevel(logging.DEBUG)
 
-file_handler = logging.FileHandler("logs/masks.log", mode='w', encoding='utf-8')
+file_handler = logging.FileHandler("logs/masks.log", mode="w", encoding="utf-8")
 file_handler.setLevel(logging.DEBUG)
 
-formatter = logging.Formatter(
-    "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
-)
+formatter = logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s")
 file_handler.setFormatter(formatter)
 
 if not logger.hasHandlers():
     logger.addHandler(file_handler)
 
 # === Типизированные функции ===
+
 
 def get_mask_card_number(card_number: str) -> str:
     """Замаскировать номер банковской карты,
@@ -33,6 +32,7 @@ def get_mask_card_number(card_number: str) -> str:
     except Exception as e:
         logger.error(f"Ошибка при маскировании номера карты: {e}")
         return ""
+
 
 def get_mask_account(account_number: str) -> str:
     """Замаскировать номер банковского счета,

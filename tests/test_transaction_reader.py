@@ -1,6 +1,8 @@
-import pandas as pd
-from typing import List, Dict
+from typing import Dict, List
 from unittest.mock import patch
+
+import pandas as pd
+
 from src.transaction_reader import read_csv_transactions, read_excel_transactions
 
 
