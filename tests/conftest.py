@@ -1,4 +1,5 @@
 import pytest
+
 from src.widget import get_date
 
 
@@ -20,10 +21,13 @@ def account_data():
     ]
 
 
-@pytest.mark.parametrize("input,expected", [
-    ("2023-01-01", "2023-01-01"),
-    ("not_a_date", None),  # некорректный формат
-])
+@pytest.mark.parametrize(
+    "input,expected",
+    [
+        ("2023-01-01", "2023-01-01"),
+        ("not_a_date", None),  # некорректный формат
+    ],
+)
 def test_get_date(input, expected):
     """
 
