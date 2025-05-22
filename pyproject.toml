@@ -20,7 +20,10 @@ flake8 = "^7.1.1"
 black = "^25.1.0"
 isort = "^6.0.0"
 mypy = "^1.14.1"
+HEAD
 pytest = "^8.3.5"
+
+6f017c861a4738b1b7029fa4a570101e6506fc5f
 
 [tool.black]
 line-length = 88
