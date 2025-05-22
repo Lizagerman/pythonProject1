@@ -1,0 +1,18 @@
+.idea
+
+# created by virtualenv automatically
+.venv/bin
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+*.egg-info/
+
+
+git add .
+   git commit -m "Инициализация проекта и создание .gitignore"
+
+git add src/widget.py
+git commit -m "Исправлены ошибки линтеров Flake8 и mypy"
+
+
