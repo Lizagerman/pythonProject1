@@ -56,4 +56,3 @@ def read_excel_transactions(path: str) -> list[dict[str, object]]:
     except Exception as e:
         print(f"Произошла ошибка при чтеии Excel-файла {path}: {e}")
         return []
-
