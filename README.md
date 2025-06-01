@@ -70,3 +70,7 @@ IT-отдел крупного банка инициирует развитие 
 
 ```bash
 pip install pandas openpyxl
+
+
+This is a new line added in my-new-feature. 
+
