@@ -16,3 +16,22 @@ git add src/widget.py
 git commit -m "Исправлены ошибки линтеров Flake8 и mypy"
 
 
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Poetry
+.poetry
+.poetry.lock
+.venv/
+
+# macOS
+.DS_Store
+
+# VSCode (если используешь)
+.vscode/
+
