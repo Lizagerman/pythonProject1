@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from src.decorators import log
 
 
@@ -23,7 +25,10 @@ def test_log_error(caplog):
     with pytest.raises(ZeroDivisionError):
         error_function(0)
 
-    assert "Ошибка в функции error_function: ZeroDivisionError - division by zero. Аргументы: (0,), {}" in caplog.text
+    assert (
+        "Ошибка в функции error_function: ZeroDivisionError - division by zero. Аргументы: (0,), {}"
+        in caplog.text
+    )
 
 
 @log()
@@ -42,4 +47,7 @@ def test_divide_by_zero(caplog):
     with pytest.raises(ZeroDivisionError):
         divide(10, 0)
 
-    assert "Ошибка в функции divide: ZeroDivisionError - division by zero. Аргументы: (10, 0), {}" in caplog.text
+    assert (
+        "Ошибка в функции divide: ZeroDivisionError - division by zero. Аргументы: (10, 0), {}"
+        in caplog.text
+    )
