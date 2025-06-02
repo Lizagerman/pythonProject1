@@ -8,17 +8,16 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "pandas>=2.2.0,<3.0.0",  # Добавляем pandas
-    "openpyxl>=3.1.0,<4.0.0", # Добавляем openpyxl для Excel
+    "pandas>=2.2.0,<3.0.0",
+    "openpyxl>=3.1.0,<4.0.0",
 ]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-# Секция для настроек Poetry
 [tool.poetry]
-package-mode = false # <--- ЭТА СТРОКА РЕШАЕТ ПРОБЛЕМУ "No file/folder found for package liza"
+package-mode = false
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.1"
@@ -29,7 +28,7 @@ pytest = "^8.3.5"
 
 [tool.black]
 line-length = 88
-target-version = ['py38'] # Убедитесь, что это соответствует вашей целевой версии Python для Black
+target-version = ['py312']
 
 [tool.isort]
 profile = "black"

@@ -19,15 +19,12 @@ def read_csv_transactions(path: str) -> list[dict[str, object]]:
         # Преобразуем DataFrame в список словарей.
         # to_dict(orient='records') уже делает то, что нужно:
         # каждую строку DataFrame преобразует в словарь.
-        records = df.to_dict(orient='records')
+        records = df.to_dict(orient="records")
 
         # Убедимся, что ключи словарей являются строками.
         # Это та самая строка, которая была изначально правильной
         # и которую нужно было вернуть, чтобы избежать ValueError.
-        return [
-            {str(k): v for k, v in row.items()}
-            for row in records
-        ]
+        return [{str(k): v for k, v in row.items()} for row in records]
     except FileNotFoundError:
         print(f"Ошибка: Файл не найден по пути: {path}")
         return []
@@ -55,13 +52,10 @@ def read_excel_transactions(path: str) -> list[dict[str, object]]:
         df = pd.read_excel(Path(path), engine="openpyxl")  # Используем Path
 
         # Преобразуем DataFrame в список словарей.
-        records = df.to_dict(orient='records')
+        records = df.to_dict(orient="records")
 
         # Убедимся, что ключи словарей являются строками.
-        return [
-            {str(k): v for k, v in row.items()}
-            for row in records
-        ]
+        return [{str(k): v for k, v in row.items()} for row in records]
     except FileNotFoundError:
         print(f"Ошибка: Файл не найден по пути: {path}")
         return []
@@ -96,17 +90,21 @@ if __name__ == "__main__":
 
     # Создаем фиктивный Excel-файл (требуется openpyxl)
     try:
-        df_excel_test = pd.DataFrame({
-            "id": [4, 5],
-            "amount": [50.0, 120.75],
-            "currency": ["JPY", "CHF"],
-            "date": ["2023-01-18", "2023-01-19"]
-        })
+        df_excel_test = pd.DataFrame(
+            {
+                "id": [4, 5],
+                "amount": [50.0, 120.75],
+                "currency": ["JPY", "CHF"],
+                "date": ["2023-01-18", "2023-01-19"],
+            }
+        )
         df_excel_test.to_excel(excel_test_file, index=False, engine="openpyxl")
         print(f"Создан тестовый Excel-файл: {excel_test_file}")
     except ImportError:
         print(
-            "\nВнимание: Для создания и чтения Excel-файлов требуется 'openpyxl'. Пожалуйста, установите: pip install openpyxl")
+            "\nВнимание: Для создания и чтения Excel-файлов требуется 'openpyxl'. "
+            "Пожалуйста, установите: pip install openpyxl"
+        )
         print(f"Excel-файл '{excel_test_file}' не был создан.")
         # Удаляем пустой файл, если он был создан до ошибки openpyxl
         Path(excel_test_file).unlink(missing_ok=True)
@@ -152,4 +150,3 @@ if __name__ == "__main__":
     Path(excel_test_file).unlink(missing_ok=True)
     Path(empty_csv_file).unlink(missing_ok=True)
     print("Тестовые файлы удалены.")
-
