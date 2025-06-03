@@ -1,7 +1,6 @@
 from collections import Counter
 from typing import List, Dict, Any, Counter as TypeCounter
 
-
 def count_transactions_by_category(
     transactions: List[Dict[str, Any]], category_keywords: Dict[str, List[str]]
 ) -> Dict[str, int]:
@@ -32,3 +31,4 @@ def count_transactions_by_category(
                 if found_category:
                     break  # Прерываем внешний цикл, если нашли категорию для транзакции
     return dict(category_counts)
+

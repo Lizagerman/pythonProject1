@@ -1,7 +1,6 @@
 import re
 from typing import List, Dict, Any
 
-
 def search_transactions_by_description(
     transactions: List[Dict[str, Any]], search_string: str
 ) -> List[Dict[str, Any]]:

@@ -2,3 +2,5 @@
 max-line-length = 88
 exclude = .venv,venv,.git,__pycache__,docs,build,dist
 
+
+

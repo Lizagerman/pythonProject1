@@ -150,3 +150,5 @@ if __name__ == "__main__":
     Path(excel_test_file).unlink(missing_ok=True)
     Path(empty_csv_file).unlink(missing_ok=True)
     print("Тестовые файлы удалены.")
+
+

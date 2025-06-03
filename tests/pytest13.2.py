@@ -5,8 +5,7 @@ from your_module import (
     count_transactions_by_category,
 )
 
-# Предполагается, что твои функции находятся в файле your_module.py
-
+# Предполагается, что функции находятся в файле your_module.py
 
 @pytest.fixture
 def sample_transactions():

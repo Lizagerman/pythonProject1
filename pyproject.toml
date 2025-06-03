@@ -37,3 +37,4 @@ line_length = 88
 [tool.mypy]
 strict = true
 
+
