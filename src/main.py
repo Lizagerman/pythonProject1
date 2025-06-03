@@ -4,7 +4,7 @@ import openpyxl
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 
-from src.re import search_transactions_by_description
+from src.transaction import search_transactions_by_description
 
 
 def main():

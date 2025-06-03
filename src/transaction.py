@@ -1,4 +1,4 @@
-import re
+import transaction
 from typing import List, Dict, Any
 
 def search_transactions_by_description(
