@@ -8,26 +8,27 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pandas>=2.2.0,<3.0.0",
+    "openpyxl>=3.1.0,<4.0.0",
 ]
-
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.1"
 black = "^25.1.0"
 isort = "^6.0.0"
 mypy = "^1.14.1"
-#HEAD
 pytest = "^8.3.5"
-
-#6f017c861a4738b1b7029fa4a570101e6506fc5f
 
 [tool.black]
 line-length = 88
-target-version = ['py38']
+target-version = ['py312']
 
 [tool.isort]
 profile = "black"
